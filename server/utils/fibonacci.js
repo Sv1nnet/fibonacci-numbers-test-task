@@ -1,4 +1,3 @@
-// maxNumber = 1476
 const fibonacci = (number) => {
   const maxNumber = 1476;
   if (typeof number !== 'number') throw new Error('Provided argument is not a number type');
@@ -16,7 +15,7 @@ const fibonacci = (number) => {
   if (number === prev) return prev;
   if (number === cur) return cur;
 
-  for (let i = 2; i <= number; i++) {
+  for (let i = 2; i <= number; i += 1) {
     temp = cur;
     cur = prev + cur;
     prev = temp;
@@ -25,6 +24,6 @@ const fibonacci = (number) => {
   }
 
   return cur;
-}
+};
 
 module.exports = { fibonacci };

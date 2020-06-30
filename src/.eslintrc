@@ -1,0 +1,23 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["airbnb", "airbnb/hooks" ],
+  "rules": {
+    "no-unused-vars": "error"
+  },
+  "env": {
+    "browser": true
+  },
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [
+          ["@", "src"],
+          ["@assets", "src/assets"],
+          ["@components", "src/components"],
+          ["@style", "src/style"]
+        ],
+        "extensions": [".js", ".jsx", ".json"]
+      }
+    }
+  }
+}

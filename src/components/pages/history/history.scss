@@ -1,0 +1,37 @@
+
+.history {
+  max-width: 320px;
+  margin: 0 auto;
+
+  &-redir-btn {
+    margin-top: 20px;
+  }
+  
+  &-loading {
+    text-align: center;
+    font-size: 1.6em;
+  }
+
+  &-pag {
+    text-align: center;
+
+
+  }
+
+  & .pagination {
+    .arrow-right {
+      transform: rotate(180deg);
+    }
+
+    & li.disabled a {
+      & span:before {
+        background-color: #999;
+      }
+      & span:after {
+        background-color: #999;
+      }
+    }
+  }
+
+}
+

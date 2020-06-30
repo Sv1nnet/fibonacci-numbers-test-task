@@ -1,0 +1,33 @@
+.arrow-icon {
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  position: relative;
+
+  &:before {
+    content: '';
+    display: block;
+    width: 15px;
+    height: 3px;
+    background-color: black;
+    border-radius: 4px;
+    
+    position: absolute;
+    top: 18px;
+    left: 7px;
+    transform: rotate(45deg)
+  }
+  &:after {
+    content: '';
+    display: block;
+    width: 15px;
+    height: 3px;
+    background-color: black;
+    border-radius: 4px;
+    
+    position: absolute;
+    top: 9px;
+    left: 7px;
+    transform: rotate(-45deg)
+  }
+}

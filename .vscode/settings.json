@@ -1,0 +1,8 @@
+{
+  "eslint.alwaysShowStatus": true,
+  "eslint.enable" : true,
+  "eslint.options": {
+    "configFile": "../fibonacci-numbers-test-task/src/.eslintrc",
+    "linebreak-style": ["", "windows"]
+  }
+}

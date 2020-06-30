@@ -7,9 +7,9 @@ const calc = (req, res) => {
 
   try {
     const result = fibonacci(number);
-    const sql = `INSERT INTO ${process.env.TABLE} (ip, number, result, date) VALUES ('${ip}', ${number}, ${result}, now())`;
+    const sql = `INSERT INTO ${process.env.TABLE} (ip, number, result, date) VALUES ('${ip}', ${number}, '${result}', now())`;
 
-    con.query(sql, (err, queryResult) => {
+    con.query(sql, (err) => {
       if (err) throw err;
 
       res.json(result);
@@ -17,6 +17,6 @@ const calc = (req, res) => {
   } catch (error) {
     res.status(400).json(error.message);
   }
-}
+};
 
 module.exports = { calc };

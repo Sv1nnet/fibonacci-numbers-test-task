@@ -1,7 +1,7 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "Server for trello application",
+  "description": "Server for fibonacci application",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
@@ -21,6 +21,7 @@
     "validator": "^11.1.0"
   },
   "devDependencies": {
+    "@types/dotenv": "^8.2.0",
     "chai": "^4.2.0",
     "cross-env": "^6.0.3",
     "mocha": "^6.1.4",
