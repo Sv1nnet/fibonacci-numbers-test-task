@@ -21,7 +21,7 @@ const History = () => {
 
   useEffect(() => {
     getHistory(pageNumber);
-  }, [pageNumber]);
+  }, [pageNumber, getHistory]);
 
   return (
     <div className="history">

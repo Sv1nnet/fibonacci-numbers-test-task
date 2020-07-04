@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import axios from 'axios';
 
 const useRequest = () => {
@@ -43,7 +43,7 @@ const useRequest = () => {
     Promise.reject(err.response);
   };
 
-  const makeRequest = (options) => {
+  const makeRequest = useCallback((options) => {
     let request;
     if (typeof options === 'string') {
       request = axios.get(options).then(successHandler).catch(errorHandler);
@@ -53,15 +53,15 @@ const useRequest = () => {
       throw new Error('Wrong type of argumant');
     }
 
-    setState({
+    setState((prevState) => ({
       loading: true,
       error: null,
       success: null,
-      data: state.data,
-    });
+      data: prevState.data,
+    }));
 
     return request;
-  };
+  }, []);
 
   return [
     state,
