@@ -4,21 +4,18 @@ console.log('env *********', env);
 if (env === 'development') {
   process.env.PORT = 8081;
 } else if (env === 'test') {
-  process.env.PORT = 8081;
+  process.env.PORT = 8082;
 }
 
 const express = require('express');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const mysql = require('mysql');
+const connectToDB = require('./connectToDB/connectToDB');
 
 dotenv.config();
 
-const { history } = require('./routes/history');
-const { calc } = require('./routes/calc');
-
 const app = express();
-const port = process.env.PORT;
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*'); // update to match the domain you will make the request from
@@ -39,55 +36,49 @@ app.use((req, res, next) => {
   }
 });
 
-let con = mysql.createConnection({
+const con = mysql.createConnection({
   host: process.env.HOST,
   user: process.env.USER_NAME,
   password: process.env.PASSWORD,
 });
 
-con.connect((initialConnectErr) => {
-  if (initialConnectErr) throw initialConnectErr;
-  console.log('Connected!');
+const { PORT: port, TABLE: table } = process.env;
+let { DATABASE: database } = process.env;
 
-  con.query(`CREATE DATABASE IF NOT EXISTS ${process.env.DATABASE}`, (createTableErr) => {
-    if (createTableErr) throw createTableErr;
-    console.log(`Database "${process.env.DATABASE}" is available`);
-
-    con.query(`CREATE TABLE IF NOT EXISTS ${process.env.DATABASE}.${process.env.TABLE} (id INT AUTO_INCREMENT PRIMARY KEY, ip VARCHAR(255), number INT, result VARCHAR(255), date DATETIME)`, (err) => {
-      if (err) throw err;
-      console.log(`Table "${process.env.DATABASE}.${process.env.TABLE}" is available`);
-
-      con.end((endConnectionErr) => {
-        if (endConnectionErr) throw endConnectionErr;
-
-        con = mysql.createConnection({
-          host: process.env.HOST,
-          user: process.env.USER_NAME,
-          password: process.env.PASSWORD,
-          database: process.env.DATABASE,
-        });
-
-        con.connect((connectionToDBErr) => {
-          if (connectionToDBErr) throw connectionToDBErr;
-          console.log(`Connected to "${process.env.DATABASE}" database. Application ready to start`);
-
-          app.use((req, res, next) => {
-            req.mysqlCon = con;
-            next();
-          });
-
-          app.get('/history', history);
-          app.post('/calc', calc);
-
-          app.listen(port, () => {
-            console.log(`Started on port ${port}`);
-          });
-        });
-      });
+// Since we connect to database asynchronously we need a way
+// to signal that app is set up and listens to a port.
+// So we resolve app running when we connect to DB
+// and pass app, con and mysql as a data to resolve function.
+const appPromise = new Promise((res, rej) => {
+  if (env === 'development') {
+    console.log('env is', env);
+    connectToDB({
+      mysql,
+      con,
+      app,
+      database,
+      table,
+      port,
+      appPromiseRes: res,
+      appPromiseRej: rej,
     });
-  });
+  } else if (env === 'test') {
+    console.log('env is', env);
+    database = process.env.TEST_DATABASE;
+    connectToDB({
+      mysql,
+      con,
+      app,
+      database,
+      table,
+      port,
+      appPromiseRes: res,
+      appPromiseRej: rej,
+    });
+  }
 });
 
 module.exports = {
   app,
+  appPromise,
 };

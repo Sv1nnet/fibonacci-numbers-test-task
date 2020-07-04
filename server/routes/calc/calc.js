@@ -1,4 +1,5 @@
-const { fibonacci } = require('../utils/fibonacci.js');
+const { fibonacci } = require('../../utils/fibonacci.js');
+const { createRecord } = require('./utils/createRecord');
 
 const calc = (req, res) => {
   const con = req.mysqlCon;
@@ -7,13 +8,8 @@ const calc = (req, res) => {
 
   try {
     const result = fibonacci(number);
-    const sql = `INSERT INTO ${process.env.TABLE} (ip, number, result, date) VALUES ('${ip}', ${number}, '${result}', now())`;
 
-    con.query(sql, (err) => {
-      if (err) throw err;
-
-      res.json(result);
-    });
+    createRecord(con, { ip, number, result }, () => res.json(result));
   } catch (error) {
     res.status(400).json(error.message);
   }
