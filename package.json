@@ -4,9 +4,9 @@
   "description": "",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack --mode development",
-    "build": "cross-env NODE_ENV=production webpack --mode production",
-    "start": "cross-env NODE_ENV=development NODE_IP=testip webpack-dev-server --mode development --open",
+    "dev": "export \"NODE_ENV=development\" webpack --mode development",
+    "build": "export \"NODE_ENV=production\" webpack --mode production",
+    "start": "export \"NODE_ENV=development\" NODE_IP=testip webpack-dev-server --mode development --open",
     "stats": "webpack --json > stats.json && webpack-bundle-analyzer stats.json",
     "test": "mocha --require mock-local-storage --project src/**/*.spec.js",
     "deploy": "gh-pages -d dist"
@@ -44,8 +44,6 @@
     "gh-pages": "^3.0.0",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.9.0",
-    "mocha": "^7.1.2",
-    "mock-local-storage": "^1.1.12",
     "node-sass": "^4.13.1",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "papaparse": "^5.1.1",
