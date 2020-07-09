@@ -5,7 +5,7 @@ import App from '@components/app/App';
 
 import '../node_modules/materialize-css/dist/css/materialize.min.css';
 import 'materialize-css';
-import '@/index.scss';
+import '@src/index.scss';
 
 ReactDOM.render(
   <BrowserRouter>

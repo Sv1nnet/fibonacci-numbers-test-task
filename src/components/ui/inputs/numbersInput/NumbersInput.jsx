@@ -8,7 +8,7 @@ import './numbers-input.scss';
  * @param {string} value - value that comes from target.value
  * @returns if value only contains digits or not
  */
-const isOnlyDigits = (value) => {
+export const isOnlyDigits = (value) => {
   const parsedValue = parseInt(value, 10);
   const onlyDigitals = /^\d+$/;
 

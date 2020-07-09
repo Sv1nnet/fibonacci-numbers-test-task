@@ -40,7 +40,7 @@ const useRequest = () => {
       data: isNetworkError ? {} : err.response.data,
       response: err.response,
     });
-    Promise.reject(err.response);
+    return isNetworkError ? err : err.response;
   };
 
   const makeRequest = useCallback((options) => {

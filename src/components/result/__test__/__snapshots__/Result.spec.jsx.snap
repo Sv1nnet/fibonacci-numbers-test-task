@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Result component Should match snapshot with empty props 1`] = `
+<div
+  className="results-container"
+>
+  <h3
+    className="center-align"
+  >
+    Result:
+  </h3>
+  <h4
+    className="center-align result-text "
+  />
+</div>
+`;
+
+exports[`Test Result component Should render as an error message inside <h4> and have error class in Result 1`] = `
+<div
+  className="results-container"
+>
+  <h3
+    className="center-align"
+  >
+    Result:
+  </h3>
+  <h4
+    className="center-align result-text red-text accent-4"
+  >
+    Error occured
+  </h4>
+</div>
+`;
+
+exports[`Test Result component Should render result inside <h4> in Result 1`] = `
+<div
+  className="results-container"
+>
+  <h3
+    className="center-align"
+  >
+    Result:
+  </h3>
+  <h4
+    className="center-align result-text "
+  >
+    154
+  </h4>
+</div>
+`;

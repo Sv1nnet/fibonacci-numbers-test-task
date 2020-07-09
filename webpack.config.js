@@ -136,13 +136,13 @@ module.exports = {
       '.js',
       '.jsx',
       '.json',
-      '.pmg',
+      '.png',
     ],
     alias: { // path names for import; in import we can specify alias instead of relative path
       '@assets': path.resolve(__dirname, 'src/assets'),
       '@components': path.resolve(__dirname, 'src/components'),
       '@style': path.resolve(__dirname, 'src/style'),
-      '@': path.resolve(__dirname, 'src'),
+      '@src': path.resolve(__dirname, 'src'),
     },
   },
   optimization: optimization(), // allows to move multiple imports in a single separated file

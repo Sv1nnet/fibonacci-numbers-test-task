@@ -3,7 +3,7 @@ import RedirectButton from '@components/ui/buttons/redirectButton/RedirectButton
 import HistoryItem from '@components/pages/history/historyItem/HistoryItem';
 import { Pagination } from 'react-materialize';
 import Icon from '@components/ui/icons/arrow/Icon';
-import { useGetHistory } from '@/hooks/api/apiHooks';
+import { useGetHistory } from '@src/hooks/api/apiHooks';
 
 import './history.scss';
 
@@ -26,7 +26,7 @@ const History = () => {
   return (
     <div className="history">
       {
-        data.results.length > 0
+        data.results && data.results.length > 0
           ? (
             <>
               <table>

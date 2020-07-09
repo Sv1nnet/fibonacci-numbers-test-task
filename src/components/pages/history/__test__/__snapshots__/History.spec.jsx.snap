@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test History component Should match snapshot with 1`] = `
+<div
+  className="history"
+>
+  <p
+    className="history-loading "
+  >
+    You have no calculations yet
+  </p>
+  <RedirectButton
+    className="history-redir-btn"
+    text="Back to main"
+    to="/"
+  />
+</div>
+`;

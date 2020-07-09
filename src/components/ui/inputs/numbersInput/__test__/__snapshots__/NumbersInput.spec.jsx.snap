@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing NumbersInput component Should match snapshot with empty props 1`] = `
+<div
+  className="container numbers-input-container"
+>
+  <TextInput
+    className="center-align numbers-input"
+    disabled={false}
+    id="TextInput-3"
+    onChange={[Function]}
+    onKeyUp={[MockFunction]}
+    placeholder="Input a number"
+    value=""
+  />
+</div>
+`;

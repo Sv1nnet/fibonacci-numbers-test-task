@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Icon component Should match snapshot with empty props 1`] = `
+<span
+  className="arrow-icon "
+/>
+`;
+
+exports[`Testing Icon component Should match snapshot with extra class passed to props 1`] = `
+<span
+  className="arrow-icon test-class"
+/>
+`;

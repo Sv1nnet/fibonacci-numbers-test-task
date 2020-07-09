@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing RedirectButton component Should match snapshot with extra class 1`] = `
+<div
+  className="redirect-btn-container"
+>
+  <Link
+    className="redirect-btn test-class"
+    to="/test-to"
+  >
+    <Button
+      className="light-green darken-3"
+      node="button"
+    >
+      test text
+    </Button>
+  </Link>
+</div>
+`;
+
+exports[`Testing RedirectButton component Should match snapshot with required props 1`] = `
+<div
+  className="redirect-btn-container"
+>
+  <Link
+    className="redirect-btn "
+    to="/test-to"
+  >
+    <Button
+      className="light-green darken-3"
+      node="button"
+    >
+      test text
+    </Button>
+  </Link>
+</div>
+`;

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import NumbersInput from '@components/ui/inputs/numbersInput/NumbersInput';
 import Result from '@components/result/Result';
 import RedirectButton from '@components/ui/buttons/redirectButton/RedirectButton';
-import { useSendNumber } from '@/hooks/api/apiHooks';
+import { useSendNumber } from '@src/hooks/api/apiHooks';
 
 const MAX_NUMBER = 1476;
 
@@ -12,7 +12,7 @@ const MainPage = () => {
   const [{ data, loading, error }, getResult] = useSendNumber();
 
   const sendCalcRequest = () => {
-    if (number !== null && number > 0) {
+    if (number !== null && number >= 0) {
       if (number < MAX_NUMBER) {
         setErrorMessage('');
         getResult(number);
