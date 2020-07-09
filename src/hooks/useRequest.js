@@ -50,7 +50,7 @@ const useRequest = () => {
     } else if (typeof options === 'object' && !Array.isArray(options) && options !== null) {
       request = axios(options).then(successHandler).catch(errorHandler);
     } else {
-      throw new Error('Wrong type of argumant');
+      throw new TypeError('Wrong type of argument');
     }
 
     setState((prevState) => ({

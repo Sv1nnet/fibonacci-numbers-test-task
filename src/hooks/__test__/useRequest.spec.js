@@ -81,6 +81,41 @@ describe('Test useGetHistory hook', () => {
     expect(state.response).toBeTruthy();
   });
 
+  it('Should set data and success status once makeRequest with options resolved successfully', async () => {
+    let requestPromise;
+    let state = hook[0];
+    await act(async () => {
+      requestPromise = makeRequest({
+        url: 'http://localhost',
+        method: 'GET',
+        data: {},
+      }).then((data) => {
+        state = hook[0];
+        return data;
+      });
+    });
+
+    state = hook[0];
+    expect(state.loading).toBe(true);
+
+    // Wait for response from a sever
+    await requestPromise;
+
+    state = hook[0];
+    expect(state.loading).toBe(false);
+    expect(state.success.status).toBeGreaterThanOrEqual(200);
+    expect(state.success.status).toBeLessThan(300);
+    expect(state.success.statusText).toBe('OK');
+    expect(state.data).toBeTruthy();
+    expect(state.response).toBeTruthy();
+  });
+
+  it('Should throw an error if argument in makeRequest has a wrong type', () => {
+    act(() => {
+      expect(() => makeRequest([])).toThrow('Wrong type of argument');
+    });
+  });
+
   it('Should set error status once makeRequest resolved with an error', async () => {
     let requestPromise;
     let state = hook[0];
