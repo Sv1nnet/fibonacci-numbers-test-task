@@ -19,6 +19,7 @@ const createResponse = (req, sqlResult) => {
   while (!sqlResult[sliceFrom]) {
     sliceFrom -= ELEMENTS_ON_PAGE;
     sliceUpto -= ELEMENTS_ON_PAGE;
+    page -= 1;
   }
 
   // Here we need to reverse results to get the latest records first

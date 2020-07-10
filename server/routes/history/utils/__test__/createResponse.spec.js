@@ -74,6 +74,30 @@ describe('Test createResponse function', () => {
     });
   });
 
+  it('Should return results with: length: 1, maxPages: 2, currentPage: 2; for p == 20', (done) => {
+    const sql = `SELECT * FROM ${process.env.TABLE} WHERE ip = '${ip}'`;
+
+    connection.query(sql, (err, sqlResult) => {
+      if (err) return done(err);
+
+      const req = { query: { p: '20' } };
+      const response = createResponse(req, sqlResult);
+      const numbers = [...numbersToCalc].reverse();
+      const results = [...resToCompare.secondPage].reverse();
+
+      expect(response.maxPages).equals(2);
+      expect(response.currentPage).equals(2);
+      expect(response.results.length).equals(1);
+
+      response.results.forEach((res) => {
+        expect(res.number).equals(numbers[10]);
+        expect(res.result).equals(results[0].toString());
+      });
+
+      return done();
+    });
+  });
+
   it('Should return results with: length: 10, maxPages: 2, currentPage: 1; for p is not a number value', (done) => {
     const sql = `SELECT * FROM ${process.env.TABLE} WHERE ip = '${ip}'`;
 
