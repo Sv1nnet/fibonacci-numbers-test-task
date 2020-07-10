@@ -27,7 +27,8 @@ describe('Test History component', () => {
         <History />
       </MemoryRouter>,
     );
-    await screen.findByText('Results');
+
+    await screen.findByRole('table');
     expect(container.querySelector('table')).toBeTruthy();
   });
 });

@@ -7,9 +7,18 @@ import '../node_modules/materialize-css/dist/css/materialize.min.css';
 import 'materialize-css';
 import '@src/index.scss';
 
-ReactDOM.render(
+const rootEl = document.getElementById('root');
+const indexComponent = (
   <BrowserRouter>
     <App />
-  </BrowserRouter>,
-  document.getElementById('root'),
+  </BrowserRouter>
 );
+
+if (rootEl) {
+  ReactDOM.render(
+    indexComponent,
+    rootEl,
+  );
+}
+
+export default indexComponent;

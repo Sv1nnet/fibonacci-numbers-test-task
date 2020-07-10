@@ -1,0 +1,184 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test index.jsx Should render without crush 1`] = `
+<div
+  id="root"
+>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <App>
+        <Nav>
+          <nav
+            className="light-green darken-3"
+          >
+            <div
+              className="nav-wrapper"
+            >
+              <h4
+                className="center nav-text"
+              >
+                <Link
+                  to="/"
+                >
+                  <LinkAnchor
+                    href="/"
+                    navigate={[Function]}
+                  >
+                    <a
+                      href="/"
+                      onClick={[Function]}
+                    >
+                      Fibonacci numbers
+                    </a>
+                  </LinkAnchor>
+                </Link>
+              </h4>
+            </div>
+          </nav>
+        </Nav>
+        <Switch>
+          <Route
+            computedMatch={
+              Object {
+                "isExact": true,
+                "params": Object {},
+                "path": "/",
+                "url": "/",
+              }
+            }
+            exact={true}
+            location={
+              Object {
+                "hash": "",
+                "pathname": "/",
+                "search": "",
+                "state": undefined,
+              }
+            }
+            path="/"
+          >
+            <MainPage>
+              <div>
+                <Result
+                  error={false}
+                  result={null}
+                >
+                  <div
+                    className="results-container"
+                  >
+                    <h3
+                      className="center-align"
+                    >
+                      Result:
+                    </h3>
+                    <h4
+                      className="center-align result-text "
+                    />
+                  </div>
+                </Result>
+                <NumbersInput
+                  disabled={false}
+                  onChange={[Function]}
+                  onKeyUp={[Function]}
+                >
+                  <div
+                    className="container numbers-input-container"
+                  >
+                    <TextInput
+                      className="center-align numbers-input"
+                      disabled={false}
+                      id="TextInput-3"
+                      onChange={[Function]}
+                      onKeyUp={[Function]}
+                      placeholder="Input a number"
+                      value=""
+                    >
+                      <div
+                        className="input-field col"
+                      >
+                        <input
+                          className="center-align numbers-input"
+                          disabled={false}
+                          id="TextInput-3"
+                          onChange={[Function]}
+                          onKeyUp={[Function]}
+                          placeholder="Input a number"
+                          type="text"
+                          value=""
+                        />
+                      </div>
+                    </TextInput>
+                  </div>
+                </NumbersInput>
+                <p
+                  className="center-align"
+                >
+                  Press Enter to calculate
+                </p>
+                <RedirectButton
+                  className=""
+                  text="View previous results"
+                  to="history"
+                >
+                  <div
+                    className="redirect-btn-container"
+                  >
+                    <Link
+                      className="redirect-btn "
+                      to="history"
+                    >
+                      <LinkAnchor
+                        className="redirect-btn "
+                        href="/history"
+                        navigate={[Function]}
+                      >
+                        <a
+                          className="redirect-btn "
+                          href="/history"
+                          onClick={[Function]}
+                        >
+                          <Button
+                            className="light-green darken-3"
+                            node="button"
+                          >
+                            <button
+                              className="btn light-green darken-3"
+                            >
+                              View previous results
+                            </button>
+                          </Button>
+                        </a>
+                      </LinkAnchor>
+                    </Link>
+                  </div>
+                </RedirectButton>
+              </div>
+            </MainPage>
+          </Route>
+        </Switch>
+      </App>
+    </Router>
+  </BrowserRouter>
+</div>
+`;

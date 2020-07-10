@@ -103,7 +103,7 @@ describe('Test apiHooks', () => {
       resultProperties.forEach((prop) => expect(state.data.results[0]).toHaveProperty(prop));
     });
 
-    it('Should get users history. DB has to have (10 < records < 20) for successful test, if geHistory recieves existing page number', async () => {
+    it('Should get users history. DB has to have (10 < records < 18) for successful test, if geHistory recieves existing page number', async () => {
       let requestPromise;
       let state = hook[0];
       await act(async () => {
@@ -131,7 +131,7 @@ describe('Test apiHooks', () => {
       resultProperties.forEach((prop) => expect(state.data.results[0]).toHaveProperty(prop));
     });
 
-    it('Should get users history. DB has to have (10 < records < 20) for successful test, if geHistory recieves not existing page number', async () => {
+    it('Should get users history. DB has to have (10 < records < 18) for successful test, if geHistory recieves not existing page number', async () => {
       let requestPromise;
       let state = hook[0];
       await act(async () => {
@@ -159,7 +159,7 @@ describe('Test apiHooks', () => {
       resultProperties.forEach((prop) => expect(state.data.results[0]).toHaveProperty(prop));
     });
 
-    it('Should get users history. DB has to have (10 < records < 20) for successful test, if geHistory recieves not a number', async () => {
+    it('Should get users history. DB has to have (10 < records < 18) for successful test, if geHistory recieves not a number', async () => {
       let requestPromise;
       let state = hook[0];
       await act(async () => {

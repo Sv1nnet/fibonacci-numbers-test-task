@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test HistoryItem Should match snapshot 1`] = `
+<tr>
+  <th>
+    10
+  </th>
+  <th>
+    55
+  </th>
+</tr>
+`;

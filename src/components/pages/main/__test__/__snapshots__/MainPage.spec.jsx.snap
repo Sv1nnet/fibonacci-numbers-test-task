@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test MainPage Should match MainPage snapshot 1`] = `
+<div>
+  <Result
+    error={false}
+    result={null}
+  />
+  <NumbersInput
+    disabled={false}
+    onChange={[Function]}
+    onKeyUp={[Function]}
+  />
+  <p
+    className="center-align"
+  >
+    Press Enter to calculate
+  </p>
+  <RedirectButton
+    className=""
+    text="View previous results"
+    to="history"
+  />
+</div>
+`;

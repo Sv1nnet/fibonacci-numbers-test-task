@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Nav Shoul match snapshot 1`] = `
+<nav
+  className="light-green darken-3"
+>
+  <div
+    className="nav-wrapper"
+  >
+    <h4
+      className="center nav-text"
+    >
+      <Link
+        to="/"
+      >
+        Fibonacci numbers
+      </Link>
+    </h4>
+  </div>
+</nav>
+`;
