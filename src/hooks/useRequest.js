@@ -33,7 +33,7 @@ const useRequest = () => {
       loading: false,
       success: null,
       error: {
-        message: isNetworkError ? 'Service Unavailable' : err.response.data.message,
+        message: isNetworkError ? 'Service Unavailable' : err.response.data,
         status: isNetworkError ? 503 : err.response.status,
         statusText: isNetworkError ? 'Service Unavailable' : err.response.statusText,
       },
