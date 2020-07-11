@@ -16,7 +16,7 @@ configure({ adapter: new Adapter() });
 // I don't use snapshots here because a "key" prop in Router has always different value
 
 describe('Test App', () => {
-  it('Should match snapshot for the route "/"', () => {
+  it('Should contain MainPage component for the route "/"', () => {
     const component = mount(
       <MemoryRouter initialEntries={['/']}>
         <App />
@@ -25,7 +25,7 @@ describe('Test App', () => {
     expect(component.find('MainPage').length).toBe(1);
   });
 
-  it('Should match snapshot for the route "/history"', () => {
+  it('Should contain History for the route "/history"', () => {
     const component = mount(
       <MemoryRouter initialEntries={['/history']}>
         <App />
@@ -35,7 +35,7 @@ describe('Test App', () => {
     expect(component.find('History').length).toBe(1);
   });
 
-  it('Should match snapshot for the unexisting route "/asd"', () => {
+  it('Should contain MainPage for the unexisting route "/asd"', () => {
     const component = mount(
       <MemoryRouter initialEntries={['/']}>
         <App />
