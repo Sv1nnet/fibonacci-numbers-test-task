@@ -1,5 +1,9 @@
 import React from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import {
+  Switch,
+  Route,
+  Redirect,
+} from 'react-router-dom';
 import Nav from '@components/nav/Nav';
 import MainPage from '@components/pages/main/MainPage';
 import History from '@components/pages/history/History';
