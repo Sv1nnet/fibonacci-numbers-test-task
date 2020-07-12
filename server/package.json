@@ -4,6 +4,7 @@
   "description": "Server for fibonacci application",
   "main": "index.js",
   "scripts": {
+    "prod": "export NODE_ENV=production && nodemon index.js --ignore ./**/*.spec.*s",
     "start": "nodemon index.js --ignore ./**/*.spec.*s",
     "test": "export NODE_ENV=test && mocha ./**/*.spec.js",
     "test-watch": "nodemon --exec \"npm test\""

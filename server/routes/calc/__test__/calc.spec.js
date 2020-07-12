@@ -28,8 +28,6 @@ beforeEach(function (done) {
 
 describe('Calc function', () => {
   it('Should return currect number and select sent number from DB', (done) => {
-
-
     Promise.all(
       numbersToCalc.map((n, i) => request(appListening)
         .post('/calc')

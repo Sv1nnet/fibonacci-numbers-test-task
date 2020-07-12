@@ -2,6 +2,16 @@ const _ = require('lodash');
 
 const ELEMENTS_ON_PAGE = 10;
 
+/**
+ * Create response with history data
+ * @param {Object} req - req object which is provided by expess
+ * @param {Object} sqlResult - req object which is provided by expess
+ * @returns {{
+ *  results: { id: number, number: number, result: string }[],
+ *  maxPages: number,
+ *  currentPage: number,
+ * }}
+ */
 const createResponse = (req, sqlResult) => {
   let { p: page } = req.query;
 

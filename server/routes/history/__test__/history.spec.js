@@ -2,8 +2,8 @@ const { expect } = require('chai');
 const { beforeEach, describe, it } = require('mocha');
 const request = require('supertest');
 const { appPromise } = require('../../../index');
-const { createNewTestTable } = require('./../../../utils/forTests/createNewTestTable');
-const { seedTable, seeds } = require('./../../../utils/forTests/seedTable');
+const { createNewTestTable } = require('../../../utils/forTests/createNewTestTable');
+const { seedTable, seeds } = require('../../../utils/forTests/seedTable');
 
 const { numbersToCalc, resToCompare } = seeds;
 

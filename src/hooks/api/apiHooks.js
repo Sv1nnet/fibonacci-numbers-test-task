@@ -3,6 +3,19 @@ import useRequest from '../useRequest';
 
 const IP = 'http://192.168.0.15:8081';
 
+/**
+ * Get users history.
+ * @returns {[
+ *  {
+ *   loading: boolean,
+ *   success: null | { status: number, statusText: string },
+ *   error: null | { message: string | undefined, status: number, statusText: string },
+ *   data: any,
+ *   response: any
+ *  },
+ *  Function
+ * ]}
+ */
 export const useGetHistory = () => {
   const [requestData, makeRequest] = useRequest();
 
@@ -11,16 +24,29 @@ export const useGetHistory = () => {
   return [requestData, getHistory];
 };
 
+/**
+ * Send number for calculation and get result.
+ * @returns {[
+ *  {
+ *   loading: boolean,
+ *   success: null | { status: number, statusText: string },
+ *   error: null | { message: string | undefined, status: number, statusText: string },
+ *   data: any,
+ *   response: any
+ *  },
+ *  Function
+ * ]}
+ */
 export const useSendNumber = () => {
   const [requestData, makeRequest] = useRequest();
 
-  const getResult = (number) => makeRequest({
+  const getResult = useCallback((number) => makeRequest({
     url: `${IP}/calc`,
     method: 'POST',
     data: {
       number,
     },
-  });
+  }), [makeRequest]);
 
   return [requestData, getResult];
 };

@@ -1,6 +1,19 @@
 import { useState, useCallback } from 'react';
 import axios from 'axios';
 
+/**
+ * Exports object that contains request status and data, and function to make request.
+ * @returns {[
+ *  {
+ *   loading: boolean,
+ *   success: null | { status: number, statusText: string },
+ *   error: null | { message: string | undefined, status: number, statusText: string },
+ *   data: any,
+ *   response: any
+ *  },
+ *  Function
+ * ]}
+ */
 const useRequest = () => {
   const [state, setState] = useState({
     loading: false,

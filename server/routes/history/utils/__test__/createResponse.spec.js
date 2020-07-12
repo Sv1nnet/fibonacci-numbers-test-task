@@ -4,6 +4,7 @@ const { createResponse } = require('../createResponse');
 const { appPromise } = require('../../../../index');
 const { createNewTestTable } = require('../../../../utils/forTests/createNewTestTable');
 const { seedTable, seeds } = require('../../../../utils/forTests/seedTable');
+
 const { numbersToCalc, resToCompare } = seeds;
 
 const ip = '::ffff:127.0.0.1';

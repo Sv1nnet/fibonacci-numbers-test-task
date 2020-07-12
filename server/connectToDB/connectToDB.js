@@ -1,15 +1,22 @@
-const { history } = require('../routes/history/history');
-const { calc } = require('../routes/calc/calc');
-
-const connectToDB = (props) => {
+/**
+ * Connect to common DB, create DB specified in .env, drop previous connection,
+ * create new connection the created DB and invoke callback
+ * if it's provided with new connection as argument.
+ * @param {Object} (props) - contains variables for connecting to DB and launching application
+ * @param {Object} props.mysql - mysql object to create a new connection to DB
+ * @param {string} props.database - name of DB to create
+ * @param {string} props.table - name of table to create in new DB
+ * @param {Function} props.errorHandler - handler thaw take error as argument
+ * @param {Object} props.con - initial connection which will be reassigned after new DB is created
+ * and provided into callback
+ * @param {Function} callback - callback which invokes after connection to DB is created
+ */
+const connectToDB = (props, callback) => {
   const {
     mysql,
-    app,
     database,
     table,
-    port,
-    appPromiseRes,
-    appPromiseRej,
+    errorHandler,
   } = props;
   let { con } = props;
 
@@ -40,25 +47,14 @@ const connectToDB = (props) => {
               if (connectionToDBErr) throw connectionToDBErr;
               console.log(`Connected to "${database}" database. Application ready to start`);
 
-              app.use((req, res, next) => {
-                req.mysqlCon = con;
-                next();
-              });
-
-              app.get('/history', history);
-              app.post('/calc', calc);
-
-              app.listen(port, () => {
-                if (appPromiseRes) appPromiseRes({ app, con, mysql });
-                console.log(`Started on port ${port}`);
-              });
+              if (callback) callback(con);
             });
           });
         });
       });
     });
   } catch (error) {
-    if (appPromiseRej) appPromiseRej(error);
+    if (errorHandler) errorHandler(error);
   }
 };
 

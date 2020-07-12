@@ -1,5 +1,5 @@
-const { createRecord } = require('./../../routes/calc/utils/createRecord');
-const { fibonacci } = require('./../fibonacci');
+const { createRecord } = require('../../routes/calc/utils/createRecord');
+const { fibonacci } = require('../fibonacci');
 
 const ip = '::ffff:127.0.0.1';
 
@@ -9,9 +9,16 @@ const resToCompare = {
   secondPage: [0],
 };
 
+/**
+ * Put test data to DB
+ * @param {Object} con - connection to DB
+ * @param {*} done - callback to be invoked at the end of test hook
+ */
 function seedTable(con, done) {
   numbersToCalc.forEach((number, i) => {
-    if ((i + 1) === numbersToCalc.length) return createRecord(con, { ip, number, result: fibonacci(number) }, done);
+    if ((i + 1) === numbersToCalc.length) {
+      return createRecord(con, { ip, number, result: fibonacci(number) }, done);
+    }
     return createRecord(con, { ip, number, result: fibonacci(number) });
   });
 }

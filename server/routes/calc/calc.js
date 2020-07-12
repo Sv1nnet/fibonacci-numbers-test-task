@@ -1,6 +1,11 @@
 const { fibonacci } = require('../../utils/fibonacci.js');
 const { createRecord } = require('./utils/createRecord');
 
+/**
+ * Route that does calculation, writes them to DB and sends response with result
+ * @param {Object} req - req object which is provided by expess
+ * @param {Object} res - res object which is provided by expess
+ */
 const calc = (req, res) => {
   const con = req.mysqlCon;
   const ip = (req.headers['x-forwarded-for'] || req.connection.remoteAddress);

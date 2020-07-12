@@ -5,7 +5,8 @@ const { createRecord } = require('../createRecord');
 const { fibonacci } = require('../../../../utils/fibonacci');
 const { createNewTestTable } = require('../../../../utils/forTests/createNewTestTable');
 
-const { TABLE: table } = process.env;
+const { TABLE: table, IP: ip } = process.env;
+const number = 17;
 
 let appListening = null;
 let connection = null;
@@ -27,9 +28,7 @@ beforeEach(function (done) {
 
 describe('Create record test', () => {
   it('Should craete a record in DB', (done) => {
-    const ip = '192.168.0.15';
-    const number = 17;
-    const result = fibonacci(17);
+    const result = fibonacci(number);
 
     createRecord(
       connection,
@@ -49,33 +48,29 @@ describe('Create record test', () => {
   });
 
   it('Should throw error if ip is not provided', (done) => {
-    const number = 17;
-    const result = fibonacci(17);
+    const result = fibonacci(number);
 
     expect(() => createRecord(connection, { number, result })).to.throw('Ip is not provided');
     done();
   });
 
   it('Should throw error if ip is not a string type', (done) => {
-    const ip = 128;
-    const number = 17;
-    const result = fibonacci(17);
+    const worngIpFormat = 128;
+    const result = fibonacci(number);
 
-    expect(() => createRecord(connection, { ip, number, result })).to.throw('Ip should be a string type');
+    expect(() => createRecord(connection, { ip: worngIpFormat, number, result })).to.throw('Ip should be a string type');
     done();
   });
 
   it('Should throw error if ip has incorrect format', (done) => {
-    const ip = 'asd.213.231.12.321.a';
-    const number = 17;
-    const result = fibonacci(17);
+    const worngIpFormat = 'asd.213.231.12.321.a';
+    const result = fibonacci(number);
 
-    expect(() => createRecord(connection, { ip, number, result })).to.throw('Ip has incorrect format');
+    expect(() => createRecord(connection, { ip: worngIpFormat, number, result })).to.throw('Ip has incorrect format');
     done();
   });
 
   it('Should throw error if number is undefined', (done) => {
-    const ip = '192.168.0.15';
     const result = fibonacci(17);
 
     expect(() => createRecord(connection, { ip, result })).to.throw('Number is not provided');
@@ -83,34 +78,27 @@ describe('Create record test', () => {
   });
 
   it('Should throw error if number is not a number type', (done) => {
-    const ip = '192.168.0.15';
     const result = fibonacci(17);
-    const number = 'asd';
+    const wrongTypedNumber = 'asd';
 
-    expect(() => createRecord(connection, { ip, number, result })).to.throw('Number is not a number type');
+    expect(() => createRecord(connection, { ip, number: wrongTypedNumber, result })).to.throw('Number is not a number type');
     done();
   });
 
   it('Should throw error if number is NaN', (done) => {
-    const ip = '192.168.0.15';
     const result = fibonacci(17);
-    const number = NaN;
+    const wrongTypedNumber = NaN;
 
-    expect(() => createRecord(connection, { ip, number, result })).to.throw('Number is NaN type');
+    expect(() => createRecord(connection, { ip, number: wrongTypedNumber, result })).to.throw('Number is NaN type');
     done();
   });
 
   it('Should throw error if result is undefined', (done) => {
-    const ip = '192.168.0.15';
-    const number = 17;
-
     expect(() => createRecord(connection, { ip, number })).to.throw('Result is not provided');
     done();
   });
 
   it('Should throw error if result is not a number type', (done) => {
-    const ip = '192.168.0.15';
-    const number = 17;
     const result = 'asd';
 
     expect(() => createRecord(connection, { ip, number, result })).to.throw('Result is not a number type');
@@ -118,8 +106,6 @@ describe('Create record test', () => {
   });
 
   it('Should throw error if result is NaN', (done) => {
-    const ip = '192.168.0.15';
-    const number = 17;
     const result = NaN;
 
     expect(() => createRecord(connection, { ip, number, result })).to.throw('Result is NaN type');
