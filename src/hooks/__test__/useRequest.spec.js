@@ -10,6 +10,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import { act } from 'react-dom/test-utils';
 import mountReactHook from '@src/testUtils/mountReactHook';
 import useRequest from '../useRequest';
+import config from '../../../vars.config';
 
 configure({ adapter: new Adapter() });
 
@@ -40,7 +41,7 @@ describe('Test useGetHistory hook', () => {
     let requestPromise;
     let state = hook[0];
     await act(async () => {
-      requestPromise = makeRequest('http://localhost').then((data) => {
+      requestPromise = makeRequest(`${config.SERVER_IP}/history`).then((data) => {
         state = hook[0];
         return data;
       });
@@ -60,7 +61,7 @@ describe('Test useGetHistory hook', () => {
     let requestPromise;
     let state = hook[0];
     await act(async () => {
-      requestPromise = makeRequest('http://localhost').then((data) => {
+      requestPromise = makeRequest(`${config.SERVER_IP}/history`).then((data) => {
         state = hook[0];
         return data;
       });
@@ -86,7 +87,7 @@ describe('Test useGetHistory hook', () => {
     let state = hook[0];
     await act(async () => {
       requestPromise = makeRequest({
-        url: 'http://localhost',
+        url: `${config.SERVER_IP}/history`,
         method: 'GET',
         data: {},
       }).then((data) => {

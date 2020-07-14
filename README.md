@@ -19,7 +19,7 @@ The app is served by 2 ports. One for getting front-end (index.html) and another
 
 :warning: **Your MySQL DB has to allow authentication with `mysql_native_password` but not with `caching_sha2_password`**
 
-2. Open server folder in terminal and run `npm run install` for packages installation.
+2. Open server folder in terminal and run `npm install` for packages installation.
 <br>
 
 ### CLI commands
@@ -54,7 +54,7 @@ this will provide **index.html** on a port you specified in `.env` for the var `
 
 2. Set `SERVER_IP` in `vars.config.js` in root repo folder as server REST api IP address (192.168.0.15:8081 for example).
 
-3. Open root repo folder in terminal and run `npm run install` for packages installation.
+3. Open root repo folder in terminal and run `npm install` for packages installation.
 <br>
 
 ### CLI commands
@@ -73,6 +73,7 @@ To run tests use
 npm run test
 ```
 :warning: **Notice that DB has to contains 11 < records_for_the_ip_which_you_launch_tests_from < 13**
+:warning: **The server has to be running**
 
 <br>
 
