@@ -1,7 +1,8 @@
 import { useCallback } from 'react';
+import config from '../../../vars.config';
 import useRequest from '../useRequest';
 
-const IP = 'http://192.168.0.15:8081';
+const IP = config.SERVER_IP;
 
 /**
  * Get users history.

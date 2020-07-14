@@ -55,18 +55,18 @@ describe('Create record test', () => {
   });
 
   it('Should throw error if ip is not a string type', (done) => {
-    const worngIpFormat = 128;
+    const wrongIpFormat = 128;
     const result = fibonacci(number);
 
-    expect(() => createRecord(connection, { ip: worngIpFormat, number, result })).to.throw('Ip should be a string type');
+    expect(() => createRecord(connection, { ip: wrongIpFormat, number, result })).to.throw('Ip should be a string type');
     done();
   });
 
   it('Should throw error if ip has incorrect format', (done) => {
-    const worngIpFormat = 'asd.213.231.12.321.a';
+    const wrongIpFormat = 'asd.213.231.12.321.a';
     const result = fibonacci(number);
 
-    expect(() => createRecord(connection, { ip: worngIpFormat, number, result })).to.throw('Ip has incorrect format');
+    expect(() => createRecord(connection, { ip: wrongIpFormat, number, result })).to.throw('Ip has incorrect format');
     done();
   });
 
