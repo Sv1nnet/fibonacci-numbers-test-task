@@ -72,7 +72,7 @@ To run tests use
 ```
 npm run test
 ```
-:warning: **Notice that DB has to contains 11 < records_for_the_ip_which_you_launch_tests_from < 13**
+:warning: **Notice that DB has to contains 11 < records_for_the_ip_which_you_launch_tests_from < 13** <br>
 :warning: **The server has to be running**
 
 <br>
