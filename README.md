@@ -7,7 +7,7 @@ The app is served by 2 ports. One for getting front-end (index.html) and another
 # Project configuration
 ## Server
 1. For the server you need to create `.env` file in `./server` folder with the following configuration:<br>
-`IP=ip_for_tests` - you can specify any valid api like 192.168.0.10 <br>
+`IP=ip_for_tests` - you can specify any valid IP like 192.168.0.10 <br>
 `FRONT_PORT=port_which_is_used_to_send_the_front-end` - when user comes to the web-site it sends **index.html** so we will specify this port in address line in browser <br>
 `PORT=port_for_rest_api` - requests from the application comes to this port <br/>
 `HOST=DB_host` - if DB is installed on machine where server runs then you can specify localhost, otherwise DB must allow to connect to itself via not localhost host <br>
