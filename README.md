@@ -4,6 +4,8 @@ This repo contains client and server. All calculations occur on the server-side 
 
 The app is served by 2 ports. One for getting front-end (index.html) and another for REST api.
 
+:warning: You must have MySQL and latest NodeJS installed on you machine where you launch the app.
+
 # Project configuration
 ## Server
 1. For the server you need to create `.env` file in `./server` folder with the following configuration:<br>
