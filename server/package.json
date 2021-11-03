@@ -19,7 +19,7 @@
     "lodash": "^4.17.14",
     "mysql": "^2.18.1",
     "nodemon": "^1.19.1",
-    "validator": "^11.1.0"
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "@types/dotenv": "^8.2.0",
